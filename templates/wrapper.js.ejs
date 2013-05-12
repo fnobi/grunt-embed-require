@@ -1,0 +1,11 @@
+(function () {
+    var require = function (modName) {
+        if (!require._module[modName]) {
+            require._module[modName] = {};
+        }
+        return require._module[modName];
+    };
+    require._module = {};
+<% mods.split(/\n/).forEach(function (line) { %>
+    <%- line %><% }); %>
+})();
