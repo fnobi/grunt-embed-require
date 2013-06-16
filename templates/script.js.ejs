@@ -1,3 +1,9 @@
-(function (exports) {<% script.split(/\n/).forEach(function (line) { %>
+(function () {
+    var module = { exports: {} },
+        exports = module.exports,
+        require = _embedRequire.req('<%= cwd %>');
+<% script.split(/\n/).forEach(function (line) { %>
     <%- line %><% }); %>
-})(require('<%= modName %>'));
+
+    _embedRequire.modules['<%= modName %>'] = module.exports;
+})();

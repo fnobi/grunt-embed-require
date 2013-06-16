@@ -1,11 +1,15 @@
 (function () {
-    var require = function (modName) {
-        if (!require._module[modName]) {
-            require._module[modName] = {};
-        }
-        return require._module[modName];
+    var _embedRequire = {
+        modules: {},
+        req: function (cwd) {
+            cwd = cwd.replace(/\/$/, '');
+            return function (modName) {
+                var p = [cwd, modName].join('/');
+                return _embedRequire.modules[p];
+            };
+        },
     };
-    require._module = {};
+
 <% mods.split(/\n/).forEach(function (line) { %>
     <%- line %><% }); %>
 })();
