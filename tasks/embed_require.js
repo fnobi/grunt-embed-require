@@ -24,12 +24,15 @@ module.exports = function (grunt) {
             });
 
         _.each(mapping, function (map) {
-            modCollection.add(path.resolve(map.src[0]), map);
+            modCollection.add(map.src[0]);
         });;
 
-        _.each(modCollection.modules, function (mod) {
-            console.log('[write] %s', mod.destPath);
-            grunt.file.write(mod.destPath, mod.embeded());
-        });;
+        _.each(mapping, function (map) {
+            console.log('[write] %s', map.dest);
+            grunt.file.write(
+                map.dest,
+                modCollection.modules[map.src[0]].embeded()
+            );
+        });
     });
 };
