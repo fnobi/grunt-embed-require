@@ -9,10 +9,13 @@ module.exports = function (grunt) {
     grunt.file.defaultEncoding = 'utf8';
 
     grunt.registerMultiTask(taskName, taskDescription, function () {
-        var target  = this.target,
-            config  = grunt.config(taskName)[target],
-            mapping = grunt.file.expandMapping(config.files, config.dest, { cwd: config.src }),
-            mods    = {};
+        var target = this.target,
+            config = grunt.config(taskName)[target],
+            srcPattern = config.srcPattern || '**/*.js',
+            dest = config.dest || 'js',
+            src = config.src || 'src',
+            mapping = grunt.file.expandMapping(srcPattern, dest, { cwd: src }),
+            mods = {};
 
         _.each(mapping, function (map) {
             mods[path.resolve(map.src[0])] = new Mod(map, mods);
