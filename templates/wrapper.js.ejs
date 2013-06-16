@@ -5,7 +5,7 @@
             dirname = dirname.replace(/\/$/, '');
             return function (modName) {
                 var p = [dirname, modName].join('/');
-                p = p.replace(/\/[\w]+\/\.\./g, '');
+                p = p.replace(/([\w]+|^\.)\/\.\.\//g, '');
                 p = p.replace(/\.\//g, '');
                 return <%= namespace %>.modules[p];
             };

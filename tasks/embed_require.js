@@ -32,6 +32,7 @@ module.exports = function (grunt) {
             var mod = modCollection.moduleForPath(path.relative(src, map.src[0]));
 
             console.log('[write] %s', map.dest);
+            console.log(mod.requires());
             grunt.file.write(map.dest, mod.embeded());
         });
     });
