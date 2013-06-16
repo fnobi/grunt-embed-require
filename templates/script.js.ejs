@@ -1,7 +1,7 @@
 (function () {
     var module = { exports: {} },
         exports = module.exports,
-        require = <%= namespace %>.req('<%= cwd %>');
+        require = <%= namespace %>.req('<%= dirname %>');
 <% script.split(/\n/).forEach(function (line) { %>
     <%- line %><% }); %>
 

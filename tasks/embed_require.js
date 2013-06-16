@@ -20,6 +20,7 @@ module.exports = function (grunt) {
 
             mapping = grunt.file.expandMapping(srcPattern, dest, { cwd: src }),
             modCollection = new ModCollection({
+                srcPath: src,
                 namespace: namespace
             });
 
@@ -28,11 +29,10 @@ module.exports = function (grunt) {
         });;
 
         _.each(mapping, function (map) {
+            var mod = modCollection.moduleForPath(path.relative(src, map.src[0]));
+
             console.log('[write] %s', map.dest);
-            grunt.file.write(
-                map.dest,
-                modCollection.modules[map.src[0]].embeded()
-            );
+            grunt.file.write(map.dest, mod.embeded());
         });
     });
 };
