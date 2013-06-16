@@ -1,11 +1,11 @@
 (function () {
-    var _embedRequire = {
+    var <%= namespace %> = {
         modules: {},
         req: function (cwd) {
             cwd = cwd.replace(/\/$/, '');
             return function (modName) {
                 var p = [cwd, modName].join('/');
-                return _embedRequire.modules[p];
+                return <%= namespace %>.modules[p];
             };
         },
     };

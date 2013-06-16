@@ -16,9 +16,12 @@ module.exports = function (grunt) {
             srcPattern = config.srcPattern || '**/*.js',
             dest = config.dest || 'js',
             src = config.src || 'src',
+            namespace = config.namespace || '_embedRequire',
 
             mapping = grunt.file.expandMapping(srcPattern, dest, { cwd: src }),
-            modCollection = new ModCollection();
+            modCollection = new ModCollection({
+                namespace: namespace
+            });
 
         _.each(mapping, function (map) {
             modCollection.add(path.resolve(map.src[0]), map);
