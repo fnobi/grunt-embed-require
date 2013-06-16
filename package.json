@@ -1,0 +1,23 @@
+{
+  "name": "grunt-embed-require",
+  "version": "0.0.0",
+  "description": "build js and embed required.",
+  "dependencies": {
+    "underscore": "~1.4.4",
+    "ejs": "~0.8.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fnobi/grunt-embed-require.git"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "author": "Fujisawa Shin",
+  "license": "BSD",
+  "gitHead": "42a80b843b9be90336b04e67c8f05bc4758337a0",
+  "readmeFilename": "README.md"
+}
