@@ -22,7 +22,8 @@ module.exports = function (grunt) {
         });;
 
         _.each(mods, function (mod) {
-            mod.writeToDest();
+            console.log('[write] %s', mod.destPath);
+            grunt.file.write(mod.destPath, mod.embeded());
         });;
     });
 };
