@@ -7,8 +7,6 @@
     "ejs": "~0.8.4"
   },
   "devDependencies": {},
-  "scripts": {
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/fnobi/grunt-embed-require.git"
